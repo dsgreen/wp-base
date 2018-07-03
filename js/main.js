@@ -1,28 +1,33 @@
 jQuery(document).ready(function($) {
-
-  // SVG to PNG, older browsers: http://dbushell.com/2013/02/04/a-primer-to-front-end-svg-hacking/
-  if (!Modernizr.svg) {
-    $('img[src$=".svg"]').each(function() {
-      $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
+    $(".main-navigation").removeClass("hidden");
+    if (window.innerWidth < 768) {
+        $(".main-navigation").hide();
+    }
+    $(".nav-toggle").click(function() {
+        $(".main-navigation").slideToggle("fast");
     });
-  }
-
-  // add responsive class to post thumbnails
-  $('.attachment-post-thumbnail').addClass('img-responsive');
-
-  /*
-   * in page scrolling
-   */
-  $.localScroll.defaults.axis = "y";
-
-  // Scroll initially if there's a hash (#something) in the url
-  $.localScroll.hash({
-    duration:500
-  });
-
-  $.localScroll({
-    duration:500,
-    hash:true
-  });
-
+    $(window).resize(function() {
+        if (window.innerWidth > 767) {
+            $(".main-navigation").show();
+        } else if (window.innerWidth < 768) {
+            $(".main-navigation").hide();
+        }
+    });
 });
+
+jQuery(document).ready(function($) {
+    $.localScroll.defaults.axis = "y";
+    $.localScroll.hash({
+        duration: 500
+    });
+    $.localScroll({
+        duration: 500,
+        hash: true
+    });
+});
+
+if (!Modernizr.svg) {
+    $('img[src$=".svg"]').each(function() {
+        $(this).attr("src", $(this).attr("src").replace(".svg", ".png"));
+    });
+}
