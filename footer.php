@@ -13,12 +13,18 @@
         </div><!--/row--><?php // from header.php ?>
 	</div><!--/#content-->
 
-    <footer class="site-footer" role="contentinfo">
-        <div class="container-fluid site-info">
-            <p class="small float-left">&copy; Copyright 2018 <?php bloginfo( 'name' ); ?></p>
-            <p class="small float-right"><a href="#top"><i class="fa fa-angle-up"></i> <?php esc_html_e( 'Back to top', '_s' ); ?></a></p>
-        </div>
-    </footer>
+<footer class="site-footer" role="contentinfo">
+	<div class="container site-info">
+    <div class="row">
+      <div class="half col">
+				<p class="">&copy; Copyright 2018 <?php bloginfo( 'name' ); ?></p>
+      </div>
+      <div class="half col">
+				<p class="text-right"><a href="#top"><?php esc_html_e( 'Back to top', '_s' ); ?></a></p>
+      </div>
+    </div>
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 
