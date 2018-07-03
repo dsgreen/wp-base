@@ -1,0 +1,10 @@
+// responsive images in post content
+.post,
+.page,
+.comment-content {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
