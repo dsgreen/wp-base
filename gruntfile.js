@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: {
-          'css/main.css' : 'src/scss/main.scss'
+          'style.css' : 'src/scss/main.scss'
         }
       },
       build: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'css/main.min.css' : 'src/scss/main.scss'
+          'style.css' : 'src/scss/main.scss'
         }
       }
     },

@@ -1,28 +1,29 @@
 {
-  "name": "s-bootstrap",
+  "name": "wp-base",
   "version": "1.0.0",
-  "description": "The _s WordPress theme with simple Bootstrap integration",
+  "description": "_s with styles",
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dsgreen/_s-bootstrap.git"
+    "url": "git+https://github.com/dsgreen/wp-base.git"
   },
   "author": "Douglas Green",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/dsgreen/_s-bootstrap/issues"
+    "url": "https://github.com/dsgreen/wp-base/issues"
   },
-  "homepage": "https://github.com/dsgreen/_s-bootstrap#readme",
+  "homepage": "https://github.com/dsgreen/wp-base#readme",
   "devDependencies": {
-    "bootstrap": "^4.1.0",
-    "grunt": "^1.0.2",
+    "bootstrap": "^4.1.1",
+    "grunt": "^1.0.3",
     "grunt-contrib-uglify": "^3.3.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^2.1.0",
     "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0",
     "popper.js": "^1.14.3"
   }
 }
