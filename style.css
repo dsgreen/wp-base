@@ -1,7 +1,17 @@
-/*
+/*!
+Theme Name: wp-base
+Theme URI: http://example.com
+Author: Douglas Green
+Author URI: https://douglasgreen.com/
+Description: A blank starter theme based on underscores (_s).
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: _s
+Tags:
 
-  Project Boilerplate
-
+_s is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700");
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
