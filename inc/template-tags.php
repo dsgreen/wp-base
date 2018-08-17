@@ -145,3 +145,38 @@ function _s_post_thumbnail() {
 	<?php endif; // End is_singular().
 }
 endif;
+
+/**
+ * Displays post pagination links
+ *
+ * Source code borrowed from Atomic by Array Themes: https://arraythemes.com/
+ * See reference: https://codex.wordpress.org/Function_Reference/paginate_links
+ *
+ */
+if ( ! function_exists( 'numeric_posts_navigation' ) ) :
+	function numeric_posts_navigation() {
+
+		global $wp_query;
+
+		// Return early if there's only one page.
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+			return;
+		}
+		?>
+    <div class="navigation">
+			<?php
+			$big = 999999999; // need an unlikely integer
+
+			echo paginate_links( array(
+				'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format'    => '?paged=%#%',
+				'current'   => max( 1, get_query_var('paged') ),
+				'total'     => $wp_query->max_num_pages,
+				'next_text' => esc_html__( '&rarr;', '_s' ),
+				'prev_text' => esc_html__( '&larr;', '_s' )
+			) );
+			?>
+    </div>
+		<?php
+	}
+endif;
