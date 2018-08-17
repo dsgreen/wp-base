@@ -44,5 +44,5 @@
 	</div>
 </header>
 
-<div class="site-content container" id="content">
+<section class="site-content container" id="content">
 	<div class="row">

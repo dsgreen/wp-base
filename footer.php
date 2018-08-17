@@ -11,7 +11,7 @@
 
 ?>
         </div><!--/row--><?php // from header.php ?>
-	</div><!--/#content-->
+	</section><!--/#content-->
 
 <footer class="site-footer" role="contentinfo">
 	<div class="container site-info">
