@@ -43,7 +43,15 @@ if ( ! function_exists( '_s_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
     // custom image sizes
-		// ...
+		add_image_size( 'extra_large', 1400, 1400 );
+
+		// add sizes to media uploader
+		add_filter( 'image_size_names_choose', 'custom_image_sizes' );
+		function custom_image_sizes( $sizes ) {
+			return array_merge( $sizes, array(
+				'extra_large' => __( 'Extra Large' )
+			) );
+		}
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
