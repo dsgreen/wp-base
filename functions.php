@@ -146,7 +146,9 @@ function _s_scripts() {
   // Bootstrap, plugins, other
 //	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', array(), '4.1.0' );
 //  wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0' );
-  // plugin styles: could opt to put in header-{custom}.php files for select pages
+  wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.1.1/css/all.css', array(), '5.1.1' );
+
+	// plugin styles: could opt to put in header-{custom}.php files for select pages
   //wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/your-custom.css', array(), '1.0.0' );
 
   // _s/main site styles (follows Bootstrap & plugins in case any overrides in main site styles)
