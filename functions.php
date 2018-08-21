@@ -136,6 +136,40 @@ function _s_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 1', '_s' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here.', '_s' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 2', '_s' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add widgets here.', '_s' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 3', '_s' ),
+		'id'            => 'footer-3',
+		'description'   => esc_html__( 'Add widgets here.', '_s' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Text', '_s' ),
+		'id'            => 'footer-text',
+		'description'   => esc_html__( 'Set footer text here.', '_s' ),
+		'before_widget' => '',
+		'after_widget'  => '',
+	) );
 }
 add_action( 'widgets_init', '_s_widgets_init' );
 
