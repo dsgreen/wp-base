@@ -10,12 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<? if (
+	!is_page_template('page-big-image.php') &&
+	!is_page_template('page-big-image-full-width.php') &&
+	!is_page_template('page-big-image-max-width.php')
+	) { ?>
 	<?php _s_post_thumbnail(); ?>
 
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
+	<?php } ?>
 	<div class="entry-content">
 		<?php
 			the_content();

@@ -10,8 +10,14 @@
  */
 
 ?>
+<? if (
+	!is_page_template('page-big-image.php') &&
+	!is_page_template('page-big-image-full-width.php') &&
+	!is_page_template('page-big-image-max-width.php')
+) { ?>
         </div><!--/row--><?php // from header.php ?>
 	</section><!--/#content-->
+<?php } ?>
 
 <footer class="site-footer" role="contentinfo">
 	<div class="container site-info">
