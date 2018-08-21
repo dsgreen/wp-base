@@ -13,6 +13,7 @@ img {
 //}
 
 // post formatting
+// for archive pages, make more specific
 .post {
   margin-top: 4em;
 }
@@ -30,7 +31,11 @@ img {
 }
 .widget-title {
   font-size: 1.8rem;
-  font-weight: bold;
+  text-transform: uppercase;
+}
+body.archive h1.page-title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
 }
 .widget ul {
   @include list-nostyle;
