@@ -32,17 +32,40 @@
     }
   }
 }
+.body--transparent-header .main-navigation {
+  a {
+    color: $main-nav-color--transparent-header;
+    &:hover,
+    &:focus {
+      color: $main-nav-hover;
+    }
+  }
+}
+
 // navigation item with button styling
 .main-nav-btn a {
-  color: $main-nav-color;
-  border: .2rem solid $main-nav-color;
-  border-radius: .3em;
+  padding-right: 1.4em;
+  padding-left: 1.4em;
+  //color: $main-nav-color;
+  border: $btn-border-width solid $main-nav-color;
+  border-radius: $btn-border-radius;
   &:focus,
   &:hover {
-    color: #fff;
+    color: $main-nav-color--transparent-header;
     background-color: $main-nav-color;
   }
 }
+.body--transparent-header  .main-nav-btn a {
+  color: $main-nav-color--transparent-header;
+  border: $btn-border-width solid $main-nav-color--transparent-header;
+  border-radius: $btn-border-radius;
+  &:focus,
+  &:hover {
+    color: $copy-color;
+    background-color: $main-nav-color--transparent-header;
+  }
+}
+
 // nav toggle button and mobile only adjustments
 @media (max-width: 767px) {
   .nav-toggle {
@@ -85,6 +108,11 @@
   .nav-toggle:focus {
     .bar {
       background-color: $main-nav-hover;
+    }
+  }
+  .body--transparent-header {
+    .nav-toggle .bar {
+      background-color: $main-nav-color--transparent-header;
     }
   }
 
