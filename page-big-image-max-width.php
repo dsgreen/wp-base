@@ -22,8 +22,8 @@ get_header();
 <section class="hero hero--sub" id="hero">
   <div class="container">
 	  <?php the_title( '<h1>', '</h1>' ); ?>
-	  <?php if (get_post_meta(get_the_ID(), 'lead')): ?>
-      <div class="lead"><h2><?php the_meta(); ?></h2></div>
+	  <?php if ($lead = get_post_meta(get_the_ID(), 'lead', true)): ?>
+      <div class="lead"><h2><?php echo esc_html($lead); ?></h2></div>
 	  <?php endif; ?>
   </div>
   <div class="color-overlay"></div>
