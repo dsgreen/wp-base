@@ -17,7 +17,19 @@
     width: 220px;
     height: auto;
   }
-  //.container {
-  //  padding: 0 2rem;
-  //}
+  // make header span full browser width
+  .container {
+    max-width: none;
+  }
+}
+.body--transparent-header .site-header {
+  background-color: transparent;
+
+  .brand {
+    @include link-color($main-nav-color--transparent-header, $accent);
+  }
+  &.toggled {
+    background-color: rgba(0,0,0,.92);
+  }
+  transition: background-color .2s ease;
 }
