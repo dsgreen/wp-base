@@ -47,10 +47,17 @@
 	<div class="container site-info">
     <div class="row">
       <div class="half col">
-				<p class="">&copy; Copyright 2018 <?php bloginfo( 'name' ); ?></p>
+	      <?php if ( is_active_sidebar( 'footer-text' ) ) { ?>
+          <?php dynamic_sidebar( 'footer-text' ); ?>
+	      <?php } else { ?>
+          <p>&copy; <?php esc_html_e('Copyright ', '_s'); echo date('Y') . ' '; bloginfo( 'name' );
+          esc_html_e('. Proudly powered by ', '_s'); ?>
+          <a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php esc_html_e('WordPress', '_s'); ?></a><?php esc_html_e(' and ', '_s'); ?>
+          <a href="<?php echo esc_url( __( 'https://github.com/dsgreen/wp-base', '_s') ); ?>"><?php esc_html_e('WP Base', '_s'); ?></a>.</p>
+	      <?php } ?>
       </div>
       <div class="half col">
-				<p class="text-right"><a href="#top"><?php esc_html_e( 'Back to top', '_s' ); ?></a></p>
+        <p class="text-right"><a href="#top"><i class="fas fa-angle-up fa-2x" title="<?php esc_html_e( 'Back to top', '_s' ); ?>"></i></a></p>
       </div>
     </div>
 	</div>
