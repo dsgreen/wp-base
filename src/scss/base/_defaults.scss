@@ -89,3 +89,11 @@ fieldset {
 textarea {
   resize: vertical;
 }
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: .1rem dotted $gray-40;
+}
+abbr[title]:hover {
+  cursor: help;
+}

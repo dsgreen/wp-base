@@ -64,6 +64,9 @@ th {
 strong {
   font-weight: bold;
 }
+b {
+  font-weight: bold;
+}
 em {
   font-style: italic;
 }
@@ -131,11 +134,4 @@ caption {
 // other
 blockquote {
   .author {}
-}
-//abbr[title] {
-//  text-decoration: none;
-//  border-bottom: .1em dotted $medium-gray-01;
-//}
-abbr[title]:hover {
-  cursor: help;
 }
