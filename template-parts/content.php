@@ -26,10 +26,10 @@
 				_s_posted_on();
 				_s_posted_by();
 			?>
-		</div><!-- .entry-meta -->
+		</div>
 		<?php
 		endif; ?>
-	</header><!-- .entry-header -->
+	</header>
 
 	<div class="entry-content">
 		<?php
@@ -51,9 +51,9 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
 		<?php _s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>
