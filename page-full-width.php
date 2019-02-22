@@ -8,7 +8,6 @@
  */
 
 get_header(); ?>
-
     <main class="col-12 col site-main" id="main" role="main">
 
 			<?php
@@ -25,6 +24,5 @@ get_header(); ?>
 			?>
 
 		</main>
-
 <?php
 get_footer();
