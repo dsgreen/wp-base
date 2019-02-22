@@ -9,8 +9,6 @@
 
 get_header(); ?>
 
-		<main class="col-9 col site-main" id="main" role="main">
-
 			<section class="error-404 not-found">
 				<header class="page-header">
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h1>
@@ -25,10 +23,10 @@ get_header(); ?>
 						the_widget( 'WP_Widget_Recent_Posts' );
 					?>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+				</div>
+			</section>
 
-		</main>
-
+  </main><!-- from header -->
+</div><!-- from header -->
 <?php
 get_footer();

@@ -13,10 +13,7 @@
  */
 
 get_header(); ?>
-
-    <main class="col-9 col site-main" id="main" role="main">
-
-		<?php
+<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
@@ -46,9 +43,8 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-
-		</main>
-
+  </main><!-- from header -->
+</div><!-- from header -->
 <?php
 get_sidebar();
 get_footer();
