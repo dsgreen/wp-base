@@ -58,5 +58,15 @@
     !is_page_template('page-big-image-max-width.php')
 ) { ?>
 <section class="site-content container" id="content">
-	<div class="row">
+  <div class="row">
+	  <?php
+    // no sidebar active, center main column
+    if ( ! is_active_sidebar( 'sidebar-1' ) ) : ?>
+    <div class="col-sm-10 offset-sm-1">
+    <?php
+    // else, we have a sidebar
+    else : ?>
+    <div class="col-sm-9">
+    <?php endif; ?>
+      <main class="site-main" id="main" role="main">
 <?php } ?>
