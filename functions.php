@@ -24,7 +24,9 @@ if ( ! function_exists( '_s_setup' ) ) :
 		 */
 		load_theme_textdomain( '_s', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+		/*
+		 * Add default posts and comments RSS feed links to head.
+		 */
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
@@ -36,7 +38,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		/*
-		 * Add wide image support
+		 * Add wide image support.
 		 */
 		add_theme_support( 'align-wide' );
 
@@ -47,24 +49,27 @@ if ( ! function_exists( '_s_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-    // custom image sizes
+    /*
+     * Register custom image sizes.
+     */
 		add_image_size( 'extra_large', 1400, 1400 );
 
-		// add sizes to media uploader
+		/*
+		 * Add sizes for use in attachment display settings menu.
+		 */
 		add_filter( 'image_size_names_choose', 'custom_image_sizes' );
 		function custom_image_sizes( $sizes ) {
 			return array_merge( $sizes, array(
-				'extra_large' => __( 'Extra Large' )
+				'extra_large' => __( 'Extra Large', '_s' )
 			) );
 		}
 
-		// This theme uses wp_nav_menu() in one location.
+		/*
+		 * Register main navigation menu.
+		 */
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', '_s' ),
 		) );
-
-		// Register Custom Navigation Walker
-		require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -78,16 +83,20 @@ if ( ! function_exists( '_s_setup' ) ) :
 			'caption',
 		) );
 
-		// post formats as needed
+		// post formats here as needed
 		// ...
 
-		// Set up the WordPress core custom background feature.
+		/*
+		 * Set up the WordPress core custom background feature.
+		 */
 		add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
 
-		// Add theme support for selective refresh for widgets.
+		/*
+		 * Add theme support for selective refresh for widgets.
+		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
@@ -102,8 +111,18 @@ if ( ! function_exists( '_s_setup' ) ) :
 			'flex-height' => true,
 		) );
 
-		// Hide WordPress version number in HTML source
-		// original source/license: unknown
+		/*
+		 * Change the excerpt 'more' link.
+		 */
+	   function new_excerpt_more() {
+		   global $post;
+		   return '&hellip; <div class="more-wrap"><a href="'. get_permalink($post->ID) . '" title="Continue to ' . get_the_title() . '" class="more-link">' . get_the_title() . '</a></div>';
+	   }
+	   add_filter('excerpt_more', 'new_excerpt_more');
+
+		/*
+		 * Remove the WordPress version number from the HTML source.
+		 */
 	  add_filter( 'the_generator', '__return_null' );
 	}
 endif;
@@ -182,13 +201,17 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-  // Bootstrap, plugins, other
-//	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', array(), '4.1.0' );
-//  wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0' );
+  /*
+   * Header scripts
+   * Bootstrap, plugins, other
+   */
+	// OPTIONAL: wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', array(), '4.1.3' );
+	wp_enqueue_style( 'bootstrap-grid', get_stylesheet_directory_uri() . '/css/bootstrap-grid.min.css', array(), '4.1.3' );
+  // ALTERNATE: wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0' );
   wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.1.1/css/all.css', array(), '5.1.1' );
 
-	// plugin styles: could opt to put in header-{custom}.php files for select pages
-  //wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/your-custom.css', array(), '1.0.0' );
+	// custom plugin styles: could opt to put in header-{custom}.php files for select pages
+  // EXAMPLE: wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/your-custom.css', array(), '1.0.0' );
 
   // _s/main site styles (follows Bootstrap & plugins in case any overrides in main site styles)
   wp_enqueue_style( 'main', get_stylesheet_uri() );
@@ -196,11 +219,15 @@ function _s_scripts() {
   // Modernizr (SVG, media query, add CSS classes, Modernizr.testStyles() build)
   wp_enqueue_script( 'modernizr_js', get_template_directory_uri() . '/js/modernizr.custom.07230.js', array(), '2.8.3' );
 
-  // footer scripts
-  // note: 'jquery' dependency removed from Bootstrap array to load custom jQuery in footer (not the bundled WP version in header).
+  /*
+   * Footer scripts
+   * Note: 'jquery' dependency removed from Bootstrap and others to load custom jQuery in footer (not the bundled WP version in header).
+   * Some plugins will require jQuery and the bundled WP version will get loaded in the header. If that's the case, remove the jQuery line below to avoid loading it twice.
+   */
 	wp_enqueue_script( 'jquery_js', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.3.1', TRUE );
-//	wp_enqueue_script( 'popper_js', get_template_directory_uri() . '/js/popper.min.js', array(), '1.14.3', TRUE );
-//	wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.1.0', TRUE );
+	// OPTIONAL: wp_enqueue_script( 'popper_js', get_template_directory_uri() . '/js/popper.min.js', array(), '1.14.3', TRUE );
+	// OPTIONAL: wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.1.0', TRUE );
+
 	// plugin scripts, followed by main site script
 	wp_enqueue_script( 'jquery_scrollTo', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array(), '2.1.2', TRUE );
 	wp_enqueue_script( 'jquery_localScroll', get_template_directory_uri() . '/js/jquery.localScroll.min.js', array(), '2.0.0', TRUE );
@@ -247,8 +274,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 /*
- * remove WordPress emoji script from head
- * original source/license: unknown
+ * Remove WordPress emoji script from head.
  */
-//remove_action('wp_head', 'print_emoji_detection_script', 7);
-//remove_action('wp_print_styles', 'print_emoji_styles');
+/*
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+*/
